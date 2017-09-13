@@ -1,0 +1,70 @@
+{
+    "psyphy" : {
+        "title" : "PsyPhy: A Psychophysics Driven Evaluation Framework for Visual Recognition",
+        "authors" : [   "bjrichardwebster",
+                        "seanthony",
+                        "wjscheirer"],
+        "venue" : "arXiv preprint",
+        "status" : "under review",
+        "abstract" : "unpublished/psyphy/bjr_psyphy.txt",
+        "pdf": "unpublished/psyphy/bjr_psyphy.pdf",
+        "supp": "unpublished/psyphy/bjr_psyphy_supp.zip",
+        "bibtex": "unpublished/psyphy/bjr_psyphy.bib",
+        "pos" : 3
+    },
+    "face_frontalization" : {
+        "title" : "To Frontalize or Not To Frontalize: Do We Really Need Elaborate Pre-Processing to Improve Face Recognition Performance?",
+        "authors" : [   "sbanerjee",
+                        "jbrogan",
+                        "jkrizaj",
+                        "abharati",
+                        "bjrichardwebster",
+                        "vstruc",
+                        "pjflynn",
+                        "wjscheirer"
+                    ],
+        "venue" : "arXiv preprint",
+        "status" : "under review",
+        "abstract" : "unpublished/face_frontalization/bjr_face_frontalization.txt",
+        "pdf" : "unpublished/face_frontalization/bjr_face_frontalization.pdf",
+        "bibtex" : "unpublished/face_frontalization/bjr_face_frontalization.bib",
+        "pos" : 2
+    },
+    "vpre" : {
+        "title" : "Report on the BTAS 2016 Video Person Recognition Evaluation",
+        "authors" : [   "pjphilips",
+                        "wjscheirer",
+                        "pjflynn",
+                        "cding",
+                        "gguo",
+                        "vstruc",
+                        "majazaery",
+                        "kgrm",
+                        "sdobrisek",
+                        "dtao",
+                        "yzhu",
+                        "jbrogan",
+                        "sbanerjee",
+                        "abharati",
+                        "bjrichardwebster"
+                    ],
+        "venue" : "Proceedings of the IEEE International Conference on Biometrics: Theory, Applications and Systems (BTAS)",
+        "status" : "September 2016",
+        "abstract" : "btas/2016_vpre/bjr_BTAS_2016_vpre.txt",
+        "pdf" : "btas/2016_vpre/bjr_BTAS_2016_vpre.pdf",
+        "bibtex" : "btas/2016_vpre/bjr_BTAS_2016_vpre.bib",
+        "pos" : 1
+    },
+    "track_correlation" : {
+        "title" : "Automated detection of latency tracks in microneurography recordings using track correlation",
+        "authors" : [   "bturnquist",
+                        "bjrichardwebster",
+                        "bnamer"],
+        "venue" : "Journal of Neuroscience Methods (JNM)",
+        "status" : "January 2016",
+        "abstract" : "jnm/track_correlation/bjr_JNM_2016_track_correlation.txt",
+        "pdf": "jnm/track_correlation/bjr_JNM_2016_track_correlation.pdf",
+        "bibtex": "jnm/track_correlation/bjr_JNM_2016_track_correlation.bib",
+        "pos" : 0
+    }
+}
