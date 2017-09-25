@@ -5,6 +5,7 @@ from flask import Flask, Markup, render_template, request
 from flask_analytics import Analytics
 
 from ibio.pamiexp.controllers import pamiexp
+from ibio.ecaldesi.controllers import ecaldesi
 from ibio.cache import cache
 import utils
 
@@ -17,7 +18,7 @@ Analytics(app)
 cache.init_app(app)
 
 # Defaults
-app.config['DEBUG'] = False
+app.config['DEBUG'] = True
 app.config['OWNER_AUTHOR_KEY'] = 'bjrichardwebster'
 app.config['ANALYTICS']['GOOGLE_UNIVERSAL_ANALYTICS']['ACCOUNT'] = 'UA-80482679-1'
 
@@ -38,3 +39,4 @@ def internal_server_error(error):
     return render_template('500.html'), 500
 
 app.register_blueprint(pamiexp, url_prefix='/pamiexp')
+app.register_blueprint(ecaldesi, url_prefix='/ecaldesi')
