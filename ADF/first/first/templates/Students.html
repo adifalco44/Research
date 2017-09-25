@@ -7,11 +7,9 @@
 {% for query in data %}
   <div class="row">
     <div class="col-sm-4" style="background-color:rgb(102,204,255)">
-      <h3 class="bg-primary text-white">Column</h3>
-      <p> {{query.First}}   {{query.Last}} has the id {{query.Student_id}}</p>
+       <h3 class="bg-primary text-white">  {{query.First}}   {{query.Last}} </h3>
+      <p> ID # {{query.Student_id}}</p>
     </div>
   </div>
   {% endfor %}
 {% endblock %}
-
-
