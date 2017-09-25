@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<ul class="data">
+{% for query in data %}
+  <div class="row">
+    <div class="col-sm-4" style="background-color:rgb(102,204,255)">
+      <h3 class="bg-primary text-white">Column</h3>
+      <p> {{query.Name}}  is worth {{query.Credits}} | ID # {{query.Student_id}}</p>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+
