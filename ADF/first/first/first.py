@@ -131,31 +131,36 @@ def append_db_page():
             db.execute('''insert into Classes (Class_id,Name,Credits) values (?,?,?)''',
                     [request.form['Class_id'],request.form['Name'],request.form['Credits']])
             db.commit()
+        db = get_db()
+        query = query_db('''select * from Classes''')
+        return render_template('Classes.html',data=query)
 
-@app.route('/Results')
-def watchman():
-    csv_file = 'first/temp.csv'
-    db = get_db()
-    print("In watchman")
-    class_id = []
-    name = []
-    credits = []
-    with open(csv_file,"r+") as file_desc:
-        i = 0
-        for line in file_desc:
-            if (i==0):
-                class_id = line.split(',')
-            if (i==1):
-                name = line.split(',')
-            if(i==2):
-                credits = line.split(',')
-            i=i+1
-    for i in range(0,len(class_id)):
-        db.execute('insert into Classes (Class_id,Name,Credits) values (?,?,?)',
-                    [int(class_id[int(i)]),str(name[int(i)]),int(credits[int(i)])])
-        db.commit()
-    os.remove(csv_file)
-    print("Database successfully updated")
-    query = query_db('''select * from Classes''')
-    return render_template('Classes.html',data=query)
+
+
+#@app.route('/Results')
+#def watchman():
+#    csv_file = 'first/temp.csv'
+#    db = get_db()
+#    print("In watchman")
+#    class_id = []
+#    name = []
+#    credits = []
+#    with open(csv_file,"r+") as file_desc:
+#        i = 0
+#        for line in file_desc:
+#            if (i==0):
+#                class_id = line.split(',')
+#            if (i==1):
+#                name = line.split(',')
+ #           if(i==2):
+ #               credits = line.split(',')
+ #           i=i+1
+ #   for i in range(0,len(class_id)):
+ #       db.execute('insert into Classes (Class_id,Name,Credits) values (?,?,?)',
+ #                   [int(class_id[int(i)]),str(name[int(i)]),int(credits[int(i)])])
+ #       db.commit()
+ #   os.remove(csv_file)
+ #   print("Database successfully updated")
+ #   query = query_db('''select * from Classes''')
+#    return render_template('Classes.html',data=query)
 
