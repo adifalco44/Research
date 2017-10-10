@@ -6,7 +6,7 @@
     A program that reads in a hard-coded static db and retrieves via qeuery
 
 """
-
+import os, string
 import time
 from sqlite3 import dbapi2 as sqlite3
 from hashlib import md5
@@ -108,23 +108,59 @@ def query_db(query, args=(), one=False):
 def students_page():
     db = get_db()
     query = query_db('''select * from Students''')
-    for student in query:
-            print(student['First']+' '+student['Last']+' has the id '+str(student['Student_id']))
     return render_template('Students.html',data=query)
 
 @app.route('/Classes')
 def classes_page():
     db = get_db()
     query = query_db('''select * from Classes''')
-    for classes in query:
-            print(classes['Name']+' is worth '+str(classes['Credits'])+' credits and has the id '+str(classes['Class_id']))
     return render_template('Classes.html',data=query)
 
 @app.route('/Schedule')
 def schedule_page():
     db = get_db()
     query = query_db('''select * from Schedule''')
-    for schedule in query:
-            print(str(schedule['Students_id'])+' has the schedule id '+str(schedule['Schedule_id'])+' and has the class id '+str(schedule['Class_id']))
     return render_template('Schedule.html',data=query)
+
+@app.route('/AppendDB',methods=['GET','POST'])
+def append_db_page():
+        if request.method == 'GET':
+            return render_template('Append_Db.html')
+        if request.method == 'POST':
+            db = get_db()
+            db.execute('''insert into Classes (Class_id,Name,Credits) values (?,?,?)''',
+                    [request.form['Class_id'],request.form['Name'],request.form['Credits']])
+            db.commit()
+        db = get_db()
+        query = query_db('''select * from Classes''')
+        return render_template('Classes.html',data=query)
+
+
+
+#@app.route('/Results')
+#def watchman():
+#    csv_file = 'first/temp.csv'
+#    db = get_db()
+#    print("In watchman")
+#    class_id = []
+#    name = []
+#    credits = []
+#    with open(csv_file,"r+") as file_desc:
+#        i = 0
+#        for line in file_desc:
+#            if (i==0):
+#                class_id = line.split(',')
+#            if (i==1):
+#                name = line.split(',')
+ #           if(i==2):
+ #               credits = line.split(',')
+ #           i=i+1
+ #   for i in range(0,len(class_id)):
+ #       db.execute('insert into Classes (Class_id,Name,Credits) values (?,?,?)',
+ #                   [int(class_id[int(i)]),str(name[int(i)]),int(credits[int(i)])])
+ #       db.commit()
+ #   os.remove(csv_file)
+ #   print("Database successfully updated")
+ #   query = query_db('''select * from Classes''')
+#    return render_template('Classes.html',data=query)
 
