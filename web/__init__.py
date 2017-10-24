@@ -30,5 +30,4 @@ def internal_server_error(error):
     app.logger.error('Server Error: %s', (error))
     return render_template('500.html'), 500
 
-# app.register_blueprint(mysql, url_prefix='/5nAP3j39')
 app.register_blueprint(faces, url_prefix='/faces')
