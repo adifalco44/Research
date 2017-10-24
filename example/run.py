@@ -2,10 +2,10 @@ from flask import Flask, abort, Blueprint, current_app, send_file, render_templa
 from flask import make_response 
 import random, uuid, os
 
-#ecaldesi = Blueprint('ecaldesi', __name__, template_folder='templates')
+example = Blueprint('example', __name__, template_folder='templates')
 app = Flask(__name__)
 
-@app.route('/')
+@example.route('/')
 def index():
     trials = []
     
@@ -28,5 +28,5 @@ def index():
 
  
 if __name__ == "__main__":
-    app.run()
+    example.run()
 
