@@ -2,6 +2,7 @@ from flask import abort, Blueprint, current_app, send_file, render_template, url
 from flask import make_response, redirect, request
 
 from web.cache import cache
+import web.connector as connector
 
 import uuid
 
@@ -31,7 +32,7 @@ def trial():
 
         # participant data
         'idParticipants'        : 1,
-        'UUID'                  : str(uuid.uuid4())
+        'UUID'                  : str(uuid.uuid4()),
 
         # trial data
         'idTrials'              : 1,
@@ -54,7 +55,7 @@ def trial():
 
         # participant data
         'idParticipants'        : 1,
-        'UUID'                  : obj1['UUID']
+        'UUID'                  : obj1['UUID'],
 
         # trial data
         'idTrials'              : 2,
