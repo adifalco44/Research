@@ -7,7 +7,6 @@ from flask import Flask, Markup, render_template, request
 from web.faces.controllers import faces
 from web.cache import cache
 
-
 # Build app
 app = Flask(__name__)
 # Analytics(app)
