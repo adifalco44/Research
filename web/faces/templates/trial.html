@@ -1,5 +1,8 @@
-{% block title %}
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% extends 'layout.html' %}
+{% block container %}
+
+<!--
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jtrial/3.2.1/jquery.min.js"></script>
 		<style>
 			button {
 				    background-color: #4CAF50;
@@ -18,32 +21,35 @@
     				    left:33%;
 				}
 		</style> 
-{% endblock %}
-
-{% block body %}
-{% for query in data %}
-
-	<img id="image" src="{{query.probe_image}}">
-		<a href="{{query.url1}}">
-			<button id = "button0">
-				<img src="{{query.img1}}" width="66" height="66"/>
+-->
+	<img id="ProbeID" src="{{trial.ProbePath}}">
+		<a href="{{ url_for('faces.response', sid=trial.UUID, tid=trial.idTrials, rid=trial.Gallery1ID) }}">
+			<button id = "Gallery1ID">
+				<img src="{{trial.Gallery1Path}}" width="66" height="66"/>
 			</button>
 		</a>
-		<a href="{{query.url2}}">
-			<button id = "button0">
-				<img src="{{query.img2}}" width="66" height="66"/>
+		<!--
+		<a href="{{trial.url2}}">
+		-->
+			<button id = "Gallery2ID">
+				<img src="{{trial.Gallery2Path}}" width="66" height="66"/>
 			</button>
+		<!--
 		</a>
-		<a href="{{query.url3}}">
-			<button id = "button0">
-				<img src="{{query.img3}}" width="66" height="66"/>
+		-->
+		<!--
+		<a href="{{trial.url3}}">
+		-->
+			<button id = "Gallery3ID">
+				<img src="{{trial.Gallery3Path}}" width="66" height="66"/>
 			</button>
+		<!--
 		</a>
+		-->
 		<script>
-			$('#image').delay({{query.timeout}}).hide(0);
-  			$('#button0').delay({{query.timeout}}).show(0);
-  			$('#button1').delay({{query.timeout}}).show(0);
-  			$('#button2').delay({{query.timeout}}).show(0);
+			$('#ProbeID').delay({{trial.ProbeTime}}).hide(0);
+  			$('#Gallery1ID').delay({{trial.ProbeTime}}).show(0);
+  			$('#Gallery2ID').delay({{trial.ProbeTime}}).show(0);
+  			$('#Gallery3ID').delay({{trial.ProbeTime}}).show(0);
 		</script>
-{% endfor %}
 {% endblock %}
