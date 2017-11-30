@@ -1,55 +1,47 @@
-{% extends 'layout.html' %}
 {% block container %}
 
 <!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jtrial/3.2.1/jquery.min.js"></script>
+	<!--
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jtrial/3.2.1/jquery.min.js"></script>
 		<style>
 			button {
-				    background-color: #4CAF50;
-				    border: none;
-				    color: white;
-				    padding: 15px 32px;
-				    text-align: center;
-				    text-decoration: none;
-				    display: inline-block;
-				    font-size: 16px;
-				    margin: 4px 4px;
-				    cursor: pointer;
-				    position:relative;
-    		
-				    top:50%;
-    				    left:33%;
+				display: inline-block;
+				height: 134px;
+				padding: 0;
+				margin: 0;
+				vertical-align: top;
+				width:104px;
 				}
-		</style> 
--->
+			#Gallery1ID img {
+				display: block;
+				height: 66px;
+				width: 100px;
+			}
+		</style>
+	-->
 	<img id="ProbeID" src="{{trial.ProbePath}}">
 		<a href="{{ url_for('faces.response', sid=trial.UUID, tid=trial.idTrials, rid=trial.Gallery1ID) }}">
+		<!--
 			<button id = "Gallery1ID">
 				<img src="{{trial.Gallery1Path}}" width="66" height="66"/>
 			</button>
+			<input id="Gallery1ID" type="image" src="{{trial.Gallery1Path}}" alt="Submit" width="66" height="66">
 		</a>
-		<!--
 		<a href="{{trial.url2}}">
-		-->
-			<button id = "Gallery2ID">
-				<img src="{{trial.Gallery2Path}}" width="66" height="66"/>
-			</button>
-		<!--
+			<input id="Gallery2ID" type="image" src="{{trial.Gallery2Path}}" alt="Submit" width="66" height="66">
 		</a>
-		-->
-		<!--
 		<a href="{{trial.url3}}">
-		-->
-			<button id = "Gallery3ID">
-				<img src="{{trial.Gallery3Path}}" width="66" height="66"/>
-			</button>
-		<!--
+			<input id="Gallery3ID" type="image" src="{{trial.Gallery3Path}}" alt="Submit" width="66" height="66">
 		</a>
-		-->
+  			$('#Gallery1ID').delay(50).show(0);
+  			$('#Gallery2ID').delay(50).show(0);
+  			$('#Gallery3ID').delay(50).show(0);
+	-->
 		<script>
-			$('#ProbeID').delay({{trial.ProbeTime}}).hide(0);
-  			$('#Gallery1ID').delay({{trial.ProbeTime}}).show(0);
-  			$('#Gallery2ID').delay({{trial.ProbeTime}}).show(0);
-  			$('#Gallery3ID').delay({{trial.ProbeTime}}).show(0);
+			$('#ProbeID').delay(50).hide(0);
 		</script>
 {% endblock %}
