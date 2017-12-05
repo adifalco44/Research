@@ -1,25 +1,9 @@
-$(window).load(function() {
-});
-
-var MYLIBRARY = MYLIBRARY || (function(){
-    var _args = {}; // private
-
-    return {
-        init : function(Args) {
-            _args = Args;
-            // some other initialising
-        },
-        helloWorld : function() {
-            alert('Hello World! -' + _args[0]);
-        }
-    };
-}());
+$(window).load(function(){});
 
 $(document).ready(function() {
 	setTimeout(function() {
-		$("#Gallery1ID").removeClass("hidden");
-		$("#Gallery2ID").removeClass("hidden");
-		$("#Gallery3ID").removeClass("hidden");
-		$("#ProbeID").addClass("hidden");
-	},50);
+		$("#Images").removeClass("hidden row");
+		$("#ProbeID").addClass("hidden row");
+		alert("Hello");
+	},3000);
 });
