@@ -1,13 +1,13 @@
-$(document).ready(function(){
-	var timer = parseInt($('#Gallery1ID')[0].value);
-	setTimeout(function(){
+$(window).on('load',function(){
+	var timer = parseInt($('#ProbeTime')[0].value);
+	// setTimeout(function(){
 		$("#ProbeID").removeClass("hidden");
-		$("#ProbeID").addClass("row");
+		// $("#ProbeID").addClass("row");
 		setTimeout(function(){
-			$("#ProbeID").removeClass("row");
+			// $("#ProbeID").removeClass("row");
 			$("#Images").removeClass("hidden");
-			$("#Images").addClass("row");
+			// $("#Images").addClass("row");
 			$("#ProbeID").addClass("hidden");
-		},timer);
-	},timer);
+		}, timer);
+	// }, 1000);
 });

@@ -14,7 +14,7 @@ def get_trial(sid):
     fakedb = []
     obj1 = {
         # experiment data
-        'ProbeTime'             : 50,
+        'ProbeTime'             : 500,
         'idExperiments'         : 1,
         'idDataType_Probe'      : 1,
         'idDataType_Gallery'    : 1,
@@ -37,7 +37,7 @@ def get_trial(sid):
 
     obj2 = {
         # experiment data
-        'ProbeTime'             : 50,
+        'ProbeTime'             : 500,
         'idExperiments'         : 1,
         'idDataType_Probe'      : 1,
         'idDataType_Gallery'    : 1,
