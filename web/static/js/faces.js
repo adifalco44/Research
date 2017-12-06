@@ -1,9 +1,11 @@
-$(window).load(function(){});
-
-$(document).ready(function() {
-	setTimeout(function() {
-		$("#Images").removeClass("hidden row");
-		$("#ProbeID").addClass("hidden row");
-		alert("Hello");
-	},3000);
+$(document).ready(function(){
+	setTimeout(function(){
+		$("#ProbeID").addClass("row");
+		setTimeout(function(){
+			$("#Images").removeClass("row hidden");
+			$("#Images").addClass("row");
+			$("#ProbeID").addClass("row hidden");
+		},5000);
+	},5000);
 });
+
