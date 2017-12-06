@@ -2,19 +2,18 @@
 {% block container %}
 
 
-<div id="ProbeID" class="hiddden row">
+<div id="ProbeID" class="hidden">
    <div class="col-lg-12">
      <h4 style="text-align: center;">
-       <img style="width: 224px; height: 224px;" src="{{trial.ProbePath}}" />
+      	   <img style="width: 224px; height: 224px;" src="{{trial.ProbePath}}" />
      </h4>
    </div>
 </div>
 
-<div id="Images" class="hidden row" align="center">
-   <div class="col-lg-12">
 
+<div id="Images" class="hidden" align="center">
 	<a href="{{url_for('faces.response',sid=trial.UUID,tid=trial.idTrials,rid=trial.Gallery1ID)}}">
-     	        <input id="Gallery1ID" type="hidden" name="input" value="">
+		<input id="Gallery1ID" type="hidden" name="input" value="{{trial.ProbeTime}}">
 		<button id="button1" type="button" class="btn btn-info">
 		<img style="width: 224px; height: 224px; text-align: left;" src="{{trial.Gallery1Path}}" />
 		</button>
@@ -33,5 +32,6 @@
 		 <img style="width: 224px; height: 224px; text-align: right" src="{{trial.Gallery3Path}}" />
 		 </button>
 	 </a>
-   </div>  
+
+
 {% endblock %}

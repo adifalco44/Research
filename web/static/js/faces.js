@@ -1,13 +1,14 @@
-$(window).load(function(){});
-
 $(document).ready(function(){
+	var timer = document.getElementById("#Gallery1ID").value;
 	setTimeout(function(){
+		$("#ProbeID").removeClass("hidden");
 		$("#ProbeID").addClass("row");
 		setTimeout(function(){
-			$("#Images").removeClass("row hidden");
+			$("#ProbeID").removeClass("row");
+			$("#Images").removeClass("hidden");
 			$("#Images").addClass("row");
-			$("#ProbeID").addClass("row hidden");
-		},1000);
-	},1000);
+			$("#ProbeID").addClass("hidden");
+		},timer);
+	},timer);
 });
 
