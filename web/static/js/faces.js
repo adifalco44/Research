@@ -1,3 +1,5 @@
+$(window).load(function(){});
+
 $(document).ready(function(){
 	setTimeout(function(){
 		$("#ProbeID").addClass("row");
