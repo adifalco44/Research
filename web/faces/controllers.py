@@ -11,8 +11,8 @@ faces = Blueprint('faces', __name__, template_folder='templates')
 @faces.route('/')
 def index():
     sid = connector.new_user(15) # TODO 15 needs to be the MTURK_ID
-    if sid is None:
-        return 'REDIRECT THIS TO MTURK1'
+#    if sid is None:
+#        return 'REDIRECT THIS TO MTURK1'
     return redirect(url_for('faces.trial', sid=sid))
 
 @faces.route('/trial/<sid>')
@@ -25,6 +25,6 @@ def trial(sid):
 @faces.route('/response/<sid>/<tid>/<rid>')
 def response(sid, tid, rid): # session id, trial id, response id
     check = connector.set_response(sid, tid, rid)
-    if check is None:
-        return 'REDIRECT THIS TO MTURK3'
+#    if check is None:
+ #       return 'REDIRECT THIS TO MTURK3'
     return redirect(url_for('faces.trial', sid=sid))
