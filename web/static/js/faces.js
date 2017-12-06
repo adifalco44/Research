@@ -5,7 +5,7 @@ $(document).ready(function(){
 			$("#Images").removeClass("row hidden");
 			$("#Images").addClass("row");
 			$("#ProbeID").addClass("row hidden");
-		},5000);
-	},5000);
+		},1000);
+	},1000);
 });
 
