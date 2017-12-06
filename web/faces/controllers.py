@@ -17,7 +17,7 @@ def index():
 
 @faces.route('/trial/<sid>')
 def trial(sid):
-    trial = connector.get_trial(1)
+    trial = connector.get_trial(sid)
     if trial is None:
         return 'REDIRECT THIS TO MTURK2'
     return render_template('trial.html', trial=trial)
