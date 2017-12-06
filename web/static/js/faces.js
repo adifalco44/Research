@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var timer = document.getElementById("#Gallery1ID").value;
+	var timer = parseInt($('#Gallery1ID')[0].value);
 	setTimeout(function(){
 		$("#ProbeID").removeClass("hidden");
 		$("#ProbeID").addClass("row");
@@ -11,4 +11,3 @@ $(document).ready(function(){
 		},timer);
 	},timer);
 });
-
