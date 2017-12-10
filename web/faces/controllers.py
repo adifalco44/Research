@@ -25,6 +25,11 @@ def trial(sid):
 @faces.route('/response/<sid>/<tid>/<rid>')
 def response(sid, tid, rid): # session id, trial id, response id
     check = connector.set_response(sid, tid, rid)
-#    if check is None:
+    time = request.cookies.get('timer')
+    if (time==None):
+        time = request.cookies.get('timer')
+
+    print(str(time))
+#if check is None:
  #       return 'REDIRECT THIS TO MTURK3'
     return redirect(url_for('faces.trial', sid=sid))
