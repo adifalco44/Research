@@ -1,3 +1,4 @@
+import time
 from flask import abort, Blueprint, current_app, send_file, render_template, url_for
 from flask import make_response, redirect, request
 
@@ -20,16 +21,21 @@ def trial(sid):
     trial = connector.get_trial(sid)
     if trial is None:
         return 'REDIRECT THIS TO MTURK2'
-    return render_template('trial.html', trial=trial)
+    response = make_response(render_template('trial.html',trial=trial))
+    response.set_cookie('timer',str(time.time()))
+    response.set_cookie('sid',sid)
+    return response
 
 @faces.route('/response/<sid>/<tid>/<rid>')
 def response(sid, tid, rid): # session id, trial id, response id
     check = connector.set_response(sid, tid, rid)
-    time = request.cookies.get('timer')
-    if (time==None):
-        time = request.cookies.get('timer')
-
-    print(str(time))
 #if check is None:
  #       return 'REDIRECT THIS TO MTURK3'
-    return redirect(url_for('faces.trial', sid=sid))
+
+    user = request.cookies.get('sid')
+    if (user==sid):
+        last = float(request.cookies.get('timer'))
+        timer = time.time() - last
+        print(str(timer))
+        return redirect(url_for('faces.trial', sid=sid))
+    return render_template("404.html")
