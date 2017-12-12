@@ -14,28 +14,20 @@ def index():
     sid = connector.new_user(15) # TODO 15 needs to be the MTURK_ID
 #    if sid is None:
 #        return 'REDIRECT THIS TO MTURK1'
-    return redirect(url_for('faces.trial', sid=sid))
+    response = make_response(redirect(url_for('faces.trial',sid=sid)))
+    response.set_cookie('timer','1')
+    return response
 
 @faces.route('/trial/<sid>')
 def trial(sid):
     trial = connector.get_trial(sid)
     if trial is None:
         return 'REDIRECT THIS TO MTURK2'
-    response = make_response(render_template('trial.html',trial=trial))
-    response.set_cookie('timer',str(time.time()))
-    response.set_cookie('sid',sid)
-    return response
+    return render_template('trial.html',trial=trial)
 
 @faces.route('/response/<sid>/<tid>/<rid>')
 def response(sid, tid, rid): # session id, trial id, response id
     check = connector.set_response(sid, tid, rid)
-#if check is None:
- #       return 'REDIRECT THIS TO MTURK3'
-
-    user = request.cookies.get('sid')
-    if (user==sid):
-        last = float(request.cookies.get('timer'))
-        timer = time.time() - last
-        print(str(timer))
-        return redirect(url_for('faces.trial', sid=sid))
-    return render_template("404.html")
+    timer = request.cookies.get('timer')
+    print(str(timer))
+    return redirect(url_for('faces.trial', sid=sid))
