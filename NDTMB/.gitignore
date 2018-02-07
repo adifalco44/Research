@@ -1,0 +1,17 @@
+# Virtualenv
+.Python
+bin
+lib
+include
+*.py[cod]
+local
+share
+
+# Mac OS X custom attribute files
+.DS_Store
+
+# Don't store log files
+log
+
+# Flask
+instance
