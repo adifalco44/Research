@@ -2,7 +2,7 @@ import os
 import warnings
 
 from flask import Flask, Markup, render_template, request
-# from flask_analytics import Analytics
+from flask_analytics import Analytics
 
 from web.faces.controllers import faces
 from web.cache import cache

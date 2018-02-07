@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block container %}
+
+
+<div id="ProbeID" class="hidden">
+   <div class="col-lg-12">
+     <h4 style="text-align: center;">
+      	   <img style="width: 224px; height: 224px;" src="{{trial.ProbePath}}" />
+     </h4>
+   </div>
+</div>
+
+
+<div id="Images" class="hidden" align="center">
+	<a href="{{url_for('faces.response',sid=trial.UUID,tid=trial.idTrials,rid=trial.Gallery1ID)}}">
+     	        <input id="Gallery1ID" type="hidden" name="input" value="">
+		<button id="button1" type="button" class="btn btn-info">
+		<img style="width: 224px; height: 224px; text-align: left;" src="{{trial.Gallery1Path}}" />
+		</button>
+	</a>
+
+	<a href="{{url_for('faces.response',sid=trial.UUID,tid=trial.idTrials,rid=trial.Gallery2ID)}}">
+		<input id="Gallery2ID" type="hidden" name="input" value="">
+		<button id="button2" type="button" class="btn btn-info">
+		<img style="width: 224px; height: 224px; text-align: center" src="{{trial.Gallery2Path}}" />
+	       </button>
+	</a>
+
+	 <a href="{{url_for('faces.response',sid=trial.UUID,tid=trial.idTrials,rid=trial.Gallery3ID)}}">
+		 <input id="Gallery3ID" type="hidden" name="input" value="">
+		 <button id="button3" type="button" class="btn btn-info">
+		 <img style="width: 224px; height: 224px; text-align: right" src="{{trial.Gallery3Path}}" />
+		 </button>
+	 </a>
+
+
+{% endblock %}
